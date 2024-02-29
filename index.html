@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>: Deine Brücke zur KI-Welt</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta description="Erkunde mit dem GPT-4 Explorer, auch bekannt als Helpline Operator, deine KI-Zukunft – eine Vision von Jörg Oyen vom Büro joergoyen.de. Egal, ob du ein OpenAI-Abonnement hast oder nicht, entdecke neue Möglichkeiten. Ohne Abo öffnen dir unsere selbsterklärenden Filme die Tür zu praxisnahen Beispielen, die die erweiterte Intelligenz der KI aufzeigen. Hast du ein Abo, nutze unsere spezialisierten GPT-Agenten als Inspiration, um zu erkennen, welche redundanten Aufgaben die KI wahrscheinlich besser übernehmen kann">
+    <meta author="Jörg Oyen, Büro joergoyen.de">
+
+    <link rel="icon" href="https://joergoyen.de/img/logo_buero_joergoyen_transparent.png" type="image/svg+xml">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        
+        .description {
+            display: none;
+            margin-top: 5px;
+            font-size: 0.8em;
+            color: white;
+        }
+        body {
+            position: relative;
+    min-height: 100vh;
+    margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+        }
+        a {color: #789BB9;
+        text-decoration: none;}
+        #logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #user-input {
+            display:block;
+            /* width: 100%; */
+            min-width: 300px;
+            min-height: 40px;
+            padding-top: 10px;
+            padding-left: 5px;
+            margin-left: -5 px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            
+        }
+
+        input[type="checkbox"] {
+        background-color: #789BB9;
+    }
+
+        .button   {
+            margin-top: 10px;
+            margin-right: 10px;
+            padding: 10px 20px;
+            min-width: 300px;
+            max-width: 300px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            background-color: #789BB9;
+            color: white;
+            cursor: pointer;
+        }
+
+        #help-button {
+    background-color: white;
+    color: #789BB9;
+    /*border-color: #789BB9;
+    border-style: solid;
+    border-width: 0 px;*/
+}
+
+        #help-button:hover {
+            background-color: orange;
+            color: white;
+            border-width: 0px;
+            border-color: white;
+            border-style: solid;
+            border: none;
+        }
+        #footer {
+            padding-top: 100px;
+            position: absolute;
+            bottom: 3px;
+            
+            text-align: center;
+            padding: 20px 0;
+            background-color: #f0f0f0;
+            width: 100%;
+            height: 40px;
+        }
+        @media (min-width: 600px) {
+            #query, #buttons {
+                width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="logo">
+        <img src="https://joergoyen.de/img/logo_buero_joergoyen_transparent.png" alt="Logo">
+    </div>
+    <label for="gpt4-subscription">GPT-4 Abo vorhanden? 
+    <input type="checkbox" id="gpt4-subscription"> Ja</label>
+    <br /><br />
+    <label for="user-input"> 
+    <input type="text" id="user-input" placeholder="Dein Text für GPT">
+
+</label>
+    <div id="buttons-container">
+        <!-- Hier werden die Buttons dynamisch eingefügt -->
+        <div ></div>
+    </div>
+    <div id="help-button" class="button">Hilfe</div>
+    <footer style="padding-top: 100px;">
+        Idee und Umsetzung Büro <a href="https://joergoyen.de" target="_blank">joergoyen.de</a> 02.2024
+    </footer>
+   <script>
+    var data = [
+        { 
+            name: "myText", 
+            url: "https://chat.openai.com/g/g-sK4hDAdmR-mytext/?q=bitte+prüfe+", 
+            subscription: true,
+            description: "Nicht sicher ob deine großartigen Gedanken in für andere kryptische Wörter kombiniert in platzsparenden Schactesätzen deine Lesern helfen deine Idee zugänglich zu machen? "
+        },
+        { 
+            name: "myUserStory", 
+            url: "https://chat.openai.com/g/g-M2Vx2sRMc-user-story-per-interview-erstellen/?q=", 
+            subscription: true,
+            description: "Gute UserStories sind die Basis für gute Software. Sie helfen, die Anforderungen an ein System zu verstehen und zu dokumentieren. "
+        },
+        { 
+            name: "myFuture", 
+            url: "https://chat.openai.com/g/g-7XHrksxSq-myfuture/?q=", 
+            subscription: true,
+            description: "Welche Teile deiner Projekte sind für deine Zukunft relevant?"
+        },
+        { 
+            name: "Film GPT Assitant User Story", 
+            url: " https://www.canva.com/design/DAFXRTLYMSc/A0QfeIuQyJdQKBGw8xFKMw/watch", 
+            subscription: false,
+            description: "Im Film wird aus den für die einen selbst erklärenden Wörter «roter Button» per Interview eine nachvollziebare User Story erstellt. "
+        },
+        { 
+            name: "Film GPT Font Profiler", 
+            url: "https://www.canva.com/design/DAF9yvhYtXk/_Io0qnp1nAO4JtK7Dor_kg/watch", 
+            subscription: false,
+            description: "Der Assitent unterstützt deine Arbeit als Schriftprofiler intelligent. Ausgehend von der Analyse einer Designer-Visitenkarte sammelt er Informationen für das Profil und bietet tiefe Einblicke in das Schriftdesign und die Ideen dahinter."
+        }
+    ];
+
+    var gptButtons = data.filter(item => item.subscription === true);
+    var filmButtons = data.filter(item => item.subscription === false);
+
+    if (filmButtons.length > gptButtons.length) {
+        console.error("Es gibt mehr Film-Buttons als GPT-Buttons. Bitte überprüfen Sie die Daten.");
+    } else {
+        console.log("Die Anzahl der Film-Buttons ist kleiner oder gleich der Anzahl der GPT-Buttons. Alles ist in Ordnung.");
+    }
+
+    // Buttons in den DOM einfügen
+    function updateButtons() {
+        var subscription = $('#gpt4-subscription').is(':checked');
+        var buttons = subscription ? gptButtons : filmButtons;
+        $('#buttons-container').empty();
+        buttons.forEach(function(item) {
+            var button = $('<div class="button"></div>');
+            button.text(item.name);
+            var description = $('<div class="description"></div>');
+            description.text(item.description);
+            button.append(description);
+            button.on('click', function(e) {
+                if (!$(e.target).hasClass('description')) {
+                    var userInput = $('#user-input').val();
+                    var encodedUserInput = encodeURIComponent(userInput);
+                    window.open(item.url + encodedUserInput, '_blank');
+                }
+            });
+            $('#buttons-container').append(button);
+        });
+        // Zeige das Texteingabefeld an, wenn die Checkbox aktiviert ist
+        if (subscription) {
+            $('#user-input').show();
+        } else {
+            $('#user-input').hide();
+        }
+    }
+
+    $(document).ready(function() {
+        $('#gpt4-subscription').change(updateButtons);
+        updateButtons();
+
+        $('#help-button').on('click', function() {
+            $('.description').toggle();
+        });
+    });
+</script>
+</body>
+</html>
